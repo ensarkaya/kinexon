@@ -5,7 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import Leaflet from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import droneIcon from 'leaflet/dist/images/car5.png';
+import carIcon from '../img/car5.png';
 
 let DefaultIcon = Leaflet.icon({
     iconUrl: icon,
@@ -15,12 +15,12 @@ let DefaultIcon = Leaflet.icon({
 });
 Leaflet.Marker.prototype.options.icon = DefaultIcon;
 
-const DroneIcon =   new Leaflet.Icon({
-    iconUrl: droneIcon,
+const CarIcon =   new Leaflet.Icon({
+    iconUrl: carIcon,
     iconSize:    [45, 45],
     iconAnchor:  [12, 20]
 });
-export {DroneIcon};
+export {CarIcon};
 
 const blueOptions = { color: 'blue' }
 
@@ -63,7 +63,7 @@ export default class Map extends Component {
                 {this.state.driverList.map((driver) => (
                     <div>
                         <div>
-                            <Marker icon={DroneIcon} position={driver.location}>
+                            <Marker icon={CarIcon} position={driver.location}>
                                 <Popup>
                                     Name: {driver.driverName} <br />
                                     City: {driver.driverCityOrigin}<br />
